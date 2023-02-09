@@ -7,7 +7,7 @@ require (
 	github.com/StackExchange/wmi v0.0.0-20210224194228-fe8f1750fd46 // indirect
 	github.com/Workiva/go-datastructures v1.0.53
 	github.com/gin-contrib/sessions v0.0.3
-	github.com/gin-gonic/gin v1.7.7
+  github.com/gin-gonic/gin v1.7.7
 	github.com/go-cmd/cmd v1.4.1
 	github.com/go-ole/go-ole v1.2.5 // indirect
 	github.com/go-telegram-bot-api/telegram-bot-api/v5 v5.5.1
@@ -21,6 +21,6 @@ require (
 	golang.org/x/text v0.6.0
 	google.golang.org/grpc v1.53.0
 	gopkg.in/yaml.v2 v2.4.0 // indirect
-	gorm.io/driver/sqlite v1.1.4
-	gorm.io/gorm v1.21.9
+	gorm.io/driver/sqlite v1.4.4
+	gorm.io/gorm v1.24.0
 )
