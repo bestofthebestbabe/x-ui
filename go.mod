@@ -17,10 +17,9 @@ require (
 	github.com/shirou/gopsutil v3.21.3+incompatible
 	github.com/tklauser/go-sysconf v0.3.5 // indirect
 	github.com/xtls/xray-core v1.4.2
-	go.uber.org/atomic v1.10.0
-	golang.org/x/sys v0.0.0-20210511113859-b0526f3d8744 // indirect
-	golang.org/x/text v0.3.6
-	google.golang.org/grpc v1.38.0
+  go.uber.org/atomic v1.7.0
+	golang.org/x/text v0.6.0
+	google.golang.org/grpc v1.53.0
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gorm.io/driver/sqlite v1.4.4
 	gorm.io/gorm v1.24.0
