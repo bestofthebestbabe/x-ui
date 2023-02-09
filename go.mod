@@ -6,7 +6,7 @@ require (
 	github.com/BurntSushi/toml v1.0.0
 	github.com/Workiva/go-datastructures v1.0.53
 	github.com/gin-contrib/sessions v0.0.5
-	github.com/gin-gonic/gin v1.7.7
+	github.com/gin-gonic/gin v1.8.2
 	github.com/go-cmd/cmd v1.4.1
 	github.com/go-telegram-bot-api/telegram-bot-api/v5 v5.5.1
 	github.com/nicksnyder/go-i18n/v2 v2.2.1
@@ -19,7 +19,6 @@ require (
 	go.uber.org/atomic v1.7.0
 	golang.org/x/text v0.7.0
 	google.golang.org/grpc v1.53.0
-	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gorm.io/driver/sqlite v1.4.4
 	gorm.io/gorm v1.24.5
 )
