@@ -201,31 +201,31 @@ func updateInboundClientIps(inboundClientIps *model.InboundClientIps,clientEmail
 
 	settings := map[string][]model.Client{}
 	json.Unmarshal([]byte(inbound.Settings), &settings)
-// 	clients := settings["clients"]
+	clients := settings["clients"]
 
-// 	for _, client := range clients {
-// 		if client.Email == clientEmail {
+	for _, client := range clients {
+		if client.Email == clientEmail {
 			
-// 			limitIp := client.LimitIP
+			limitIp := client.LimitIP
 			
-// 			if(limitIp < len(ips) && limitIp != 0 && inbound.Enable) {
+			if(limitIp < len(ips) && limitIp != 0 && inbound.Enable) {
 				
-// 				disAllowedIps = append(disAllowedIps,ips[limitIp:]...)
-// 			}
-// 			break
-// 		}
-// 	}
-	client := settings["clients"][-1]
-	if client.Email == clientEmail {
-
-		limitIp := client.LimitIP
-
-		if(limitIp < len(ips) && limitIp != 0 && inbound.Enable) {
-
-			disAllowedIps = append(disAllowedIps,ips[limitIp:]...)
+				disAllowedIps = append(disAllowedIps,ips[limitIp:]...)
+			}
+			break
 		}
-		break
 	}
+// 	client := settings["clients"][-1]
+// 	if client.Email == clientEmail {
+
+// 		limitIp := client.LimitIP
+
+// 		if(limitIp < len(ips) && limitIp != 0 && inbound.Enable) {
+
+// 			disAllowedIps = append(disAllowedIps,ips[limitIp:]...)
+// 		}
+// 		break
+// 	}
 	logger.Debug("disAllowedIps ",disAllowedIps)
     sort.Sort(sort.StringSlice(disAllowedIps))
 
