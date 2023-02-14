@@ -33,7 +33,7 @@ jobs:
   linuxamd64build:
     name: build x-ui amd64 version
     needs: release
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
       - name: Set up Go
@@ -74,7 +74,7 @@ jobs:
   linuxarm64build:
     name: build x-ui arm64 version
     needs: release
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
       - name: Set up Go
@@ -117,7 +117,7 @@ jobs:
   linuxs390xbuild:
     name: build x-ui s390x version
     needs: release
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
       - name: Set up Go
