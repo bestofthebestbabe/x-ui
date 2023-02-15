@@ -24,6 +24,9 @@ const SSMethods = {
     CHACHA20_POLY1305: 'chacha20-poly1305',
     AES_256_GCM: 'aes-256-gcm',
     AES_128_GCM: 'aes-128-gcm',
+    BLAKE3_AES_128_GCM: '2022-blake3-aes-128-gcm',
+    BLAKE3_AES_256_GCM: '2022-blake3-aes-256-gcm',
+    BLAKE3_CHACHA20_POLY1305: '2022-blake3-chacha20-poly1305',
 };
 
 const RULE_IP = {
@@ -40,13 +43,9 @@ const RULE_DOMAIN = {
     SPEEDTEST: 'geosite:speedtest',
 };
 
-const XTLS_FLOW_CONTROL = {
+const FLOW_CONTROL = {
     ORIGIN: "xtls-rprx-origin",
     DIRECT: "xtls-rprx-direct",
-};
-
-const TLS_FLOW_CONTROL = {
-    VISION: "xtls-rprx-vision",
 };
 
 Object.freeze(Protocols);
@@ -54,8 +53,7 @@ Object.freeze(VmessMethods);
 Object.freeze(SSMethods);
 Object.freeze(RULE_IP);
 Object.freeze(RULE_DOMAIN);
-Object.freeze(XTLS_FLOW_CONTROL);
-Object.freeze(TLS_FLOW_CONTROL);
+Object.freeze(FLOW_CONTROL);
 
 class XrayCommonClass {
 
@@ -857,18 +855,6 @@ class Inbound extends XrayCommonClass {
                 return false;
         }
     }
-    
-    canEnableTlsFlow() {
-        if ((this.stream.security === 'tls') && (this.network === "tcp")) {
-            switch (this.protocol) {
-                case Protocols.VLESS:
-                    return true;
-                default:
-                    return false;
-            }
-        }
-        return false;
-    }
 
     canSetTls() {
         return this.canEnableTls();
@@ -1282,7 +1268,7 @@ Inbound.VLESSSettings = class extends Inbound.Settings {
 };
 Inbound.VLESSSettings.VLESS = class extends XrayCommonClass {
 
-    constructor(id=RandomUtil.randomUUID(), flow='', email='', limitIp=0, totalGB=0, expiryTime='') {
+    constructor(id=RandomUtil.randomUUID(), flow=FLOW_CONTROL.DIRECT, email='', limitIp=0, totalGB=0, expiryTime='') {
         super();
         this.id = id;
         this.flow = flow;
@@ -1402,7 +1388,7 @@ Inbound.TrojanSettings = class extends Inbound.Settings {
     }
 };
 Inbound.TrojanSettings.Client = class extends XrayCommonClass {
-    constructor(password=RandomUtil.randomSeq(10), flow='') {
+    constructor(password=RandomUtil.randomSeq(10), flow=FLOW_CONTROL.DIRECT) {
         super();
         this.password = password;
         this.flow = flow;
