@@ -1270,7 +1270,7 @@ Inbound.VLESSSettings = class extends Inbound.Settings {
 };
 Inbound.VLESSSettings.VLESS = class extends XrayCommonClass {
 
-    constructor(id=RandomUtil.randomUUID(), flow=FLOW_CONTROL.DIRECT, email='', limitIp=0, totalGB=0, expiryTime='') {
+    constructor(id=RandomUtil.randomUUID(), flow=XTLS_FLOW_CONTROL.DIRECT, email='', limitIp=0, totalGB=0, expiryTime='') {
         super();
         this.id = id;
         this.flow = flow;
@@ -1390,7 +1390,7 @@ Inbound.TrojanSettings = class extends Inbound.Settings {
     }
 };
 Inbound.TrojanSettings.Client = class extends XrayCommonClass {
-    constructor(password=RandomUtil.randomSeq(10), flow=FLOW_CONTROL.DIRECT) {
+    constructor(password=RandomUtil.randomSeq(10), flow=XTLS_FLOW_CONTROL.DIRECT) {
         super();
         this.password = password;
         this.flow = flow;
