@@ -66,7 +66,13 @@
         <a-form-item v-if="inbound.xtls" label="flow">
             <a-select v-model="vless.flow" style="width: 150px">
                 <a-select-option value="">{{ i18n "none" }}</a-select-option>
-                <a-select-option v-for="key in FLOW_CONTROL" :value="key">[[ key ]]</a-select-option>
+                <a-select-option v-for="key in XTLS_FLOW_CONTROL" :value="key">[[ key ]]</a-select-option>
+            </a-select>
+        </a-form-item>
+        <a-form-item v-if="inbound.tls" label="flow">
+            <a-select v-model="vless.flow" style="width: 150px">
+                <a-select-option value="">{{ i18n "none" }}</a-select-option>
+                <a-select-option v-for="key in TLS_FLOW_CONTROL" :value="key">[[ key ]]</a-select-option>
             </a-select>
         </a-form-item>
         <a-form-item>
