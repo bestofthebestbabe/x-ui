@@ -204,6 +204,9 @@ func updateInboundClientIps(inboundClientIps *model.InboundClientIps,clientEmail
 	clients := settings["clients"]
 
 	for _, client := range clients {
+		if client.Email == ""{
+			continue	
+		}
 		if client.Email == clientEmail {
 			
 			limitIp := client.LimitIP
