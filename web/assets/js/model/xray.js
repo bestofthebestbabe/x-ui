@@ -857,6 +857,18 @@ class Inbound extends XrayCommonClass {
                 return false;
         }
     }
+    
+    canEnableTlsFlow() {
+        if ((this.stream.security === 'tls') && (this.network === "tcp")) {
+            switch (this.protocol) {
+                case Protocols.VLESS:
+                    return true;
+                default:
+                    return false;
+            }
+        }
+        return false;
+    }
 
     canSetTls() {
         return this.canEnableTls();
