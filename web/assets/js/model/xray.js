@@ -40,9 +40,13 @@ const RULE_DOMAIN = {
     SPEEDTEST: 'geosite:speedtest',
 };
 
-const FLOW_CONTROL = {
+const XTLS_FLOW_CONTROL = {
     ORIGIN: "xtls-rprx-origin",
     DIRECT: "xtls-rprx-direct",
+};
+
+const TLS_FLOW_CONTROL = {
+    VISION: "xtls-rprx-vision",
 };
 
 Object.freeze(Protocols);
@@ -50,7 +54,8 @@ Object.freeze(VmessMethods);
 Object.freeze(SSMethods);
 Object.freeze(RULE_IP);
 Object.freeze(RULE_DOMAIN);
-Object.freeze(FLOW_CONTROL);
+Object.freeze(XTLS_FLOW_CONTROL);
+Object.freeze(TLS_FLOW_CONTROL);
 
 class XrayCommonClass {
 
