@@ -257,6 +257,9 @@ func (p *process) GetTraffic(reset bool) ([]*Traffic, []*ClientTraffic, error) {
 	traffics := make([]*Traffic, 0)
 	for _, stat := range resp.GetStat() {
 		matchs := trafficRegex.FindStringSubmatch(stat.Name)
+		if len(matchs) < 4 {
+			continue
+		}
 		if len(matchs) < 3 {
 
 			matchs := ClientTrafficRegex.FindStringSubmatch(stat.Name)
