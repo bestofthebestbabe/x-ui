@@ -277,6 +277,9 @@ func (s *InboundService) AddClientTraffic(traffics []*xray.ClientTraffic) (err e
 		inbound := &model.Inbound{}
 
 		err := txInbound.Where("settings like ?", "%" + traffic.Email + "%").First(inbound).Error
+		if traffic.Email == "" {
+			continue	
+		}
 		traffic.InboundId = inbound.Id
 		if err != nil {
 			if err == gorm.ErrRecordNotFound {
